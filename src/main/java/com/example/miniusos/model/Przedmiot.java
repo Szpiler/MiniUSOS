@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "przedmioty")
+@Table(name = "przedmioty")
 public class Przedmiot {
 
     @Id
@@ -12,25 +13,29 @@ public class Przedmiot {
     private Long id;
 
     private String nazwa;
-    private int limit;
+    private int maxIloscStudentow;
 
-    @ManyToMany
-    @JoinTable(
-            name = "studenci_przedmioty",
-            joinColumns = @JoinColumn(name = "przedmiot_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "student_index", referencedColumnName = "index")
-    )
+    @ManyToMany(mappedBy = "przedmioty")
     private Set<Student> studenci = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL,
+    mappedBy = "przedmiot")
     private Set<Ocena> oceny = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "pracownik_naukowy_id")
+    private PracownikNaukowy prowadzacy;
+
+    @ManyToOne
+    @JoinColumn(name = "pracownik_dziekanatu_id")
+    private PracownikDziekanatu pracownikD;
 
     public Przedmiot() {
     }
 
     public Przedmiot(String nazwa, int limit) {
         this.nazwa = nazwa;
-        this.limit = limit;
+        this.maxIloscStudentow = limit;
     }
 
     public Long getId() {
@@ -49,12 +54,20 @@ public class Przedmiot {
         this.nazwa = nazwa;
     }
 
-    public int getLimit() {
-        return limit;
+    public int getMaxIloscStudentow() {
+        return maxIloscStudentow;
     }
 
-    public void setLimit(int limit) {
-        this.limit = limit;
+    public void setMaxIloscStudentow(int limit) {
+        this.maxIloscStudentow = limit;
+    }
+
+    public PracownikNaukowy getProwadzacy() {
+        return prowadzacy;
+    }
+
+    public void setProwadzacy(PracownikNaukowy prowadzacy) {
+        this.prowadzacy = prowadzacy;
     }
 
     public Set<Student> getStudenci() {
@@ -78,8 +91,10 @@ public class Przedmiot {
         return "Przedmiot{" +
                 "id=" + id +
                 ", nazwa='" + nazwa + '\'' +
-                ", limit=" + limit +
+                ", maxIloscStudentow=" + maxIloscStudentow +
                 ", studenci=" + studenci +
+                ", oceny=" + oceny +
+                ", prowadzacy=" + prowadzacy +
                 '}';
     }
 

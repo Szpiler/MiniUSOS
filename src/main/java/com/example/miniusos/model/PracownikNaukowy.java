@@ -4,29 +4,20 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "studenci")
-@Table(name = "studenci")
-public class Student extends Uzytkownik {
-
+@Entity(name = "pracownicy_naukowy")
+@Table(name = "pracownicy_naukowy")
+public class PracownikNaukowy extends Uzytkownik {
     @Id
     private Long id;
 
     @OneToMany(cascade=CascadeType.ALL,
-            mappedBy = "student")
-    private Set<Ocena> oceny = new HashSet<>();
-
-    @ManyToMany
-    @JoinTable(
-            name = "studenci_przedmioty",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "przedmiot_id")
-    )
+            mappedBy = "prowadzacy")
     private Set<Przedmiot> przedmioty = new HashSet<>();
 
-    public Student(){
+    public PracownikNaukowy(){
     }
 
-    public Student(String imie, String nazwisko, String email, int numerTelefonu, String login, String haslo, Long index) {
+    public PracownikNaukowy(String imie, String nazwisko, String email, int numerTelefonu, String login, String haslo, Long index) {
         super(imie, nazwisko, email, numerTelefonu, login, haslo);
         this.id = index;
     }
@@ -39,14 +30,6 @@ public class Student extends Uzytkownik {
         this.id = index;
     }
 
-    public Set<Ocena> getOceny() {
-        return oceny;
-    }
-
-    public void setOceny(Set<Ocena> oceny) {
-        this.oceny = oceny;
-    }
-
     public Set<Przedmiot> getPrzedmioty() {
         return przedmioty;
     }
@@ -57,8 +40,9 @@ public class Student extends Uzytkownik {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "index=" + id +
+        return "PracownikNaukowy{" +
+                "id=" + id +
+                ", przedmioty=" + przedmioty +
                 '}';
     }
 
@@ -67,9 +51,9 @@ public class Student extends Uzytkownik {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Student student = (Student) o;
+        PracownikNaukowy that = (PracownikNaukowy) o;
 
-        return id != null ? id.equals(student.id) : student.id == null;
+        return przedmioty != null ? przedmioty.equals(that.przedmioty) : that.przedmioty == null;
     }
 
     @Override

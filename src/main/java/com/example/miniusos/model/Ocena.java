@@ -2,8 +2,8 @@ package com.example.miniusos.model;
 
 import javax.persistence.*;
 
-@Entity(name = "Oceny")
-@Table(name = "Oceny")
+@Entity(name = "oceny")
+@Table(name = "oceny")
 public class Ocena {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,10 +18,13 @@ public class Ocena {
             nullable = false
     )
     private int ocena;
+
     @ManyToOne
-    @JoinColumn(name = "studenci_index")
+    @JoinColumn(name = "studenci_id")
     private Student student;
+
     @ManyToOne
+    @JoinColumn(name = "przedmioty_id")
     private Przedmiot przedmiot;
 
     public Ocena() {
@@ -45,6 +48,22 @@ public class Ocena {
 
     public void setOcena(int ocena) {
         this.ocena = ocena;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Przedmiot getPrzedmiot() {
+        return przedmiot;
+    }
+
+    public void setPrzedmiot(Przedmiot przedmiot) {
+        this.przedmiot = przedmiot;
     }
 
     @Override

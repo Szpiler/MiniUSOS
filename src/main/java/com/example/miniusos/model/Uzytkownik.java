@@ -3,10 +3,9 @@ package com.example.miniusos.model;
 import org.hibernate.annotations.ColumnTransformer;
 
 import javax.persistence.Column;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
-@Inheritance(strategy= InheritanceType.JOINED)
+@MappedSuperclass
 public abstract class Uzytkownik {
     @Column(
             name = "imie",

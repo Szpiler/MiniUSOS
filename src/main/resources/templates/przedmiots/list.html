@@ -11,14 +11,14 @@
     <tr>
         <th>ID</th>
         <th>Nazwa</th>
-<!--        <th>Prowadzący</th>-->
-<!--        <th>Maksymalna liczba studentów</th>-->
+        <th>Prowadzący</th>
+        <th>Maksymalna liczba studentów</th>
     </tr>
     <tr th:each="przedmiot : ${przedmiots}">
         <td th:text="${przedmiot.id}">BRAK</td>
         <td th:text="${przedmiot.nazwa}">Jan</td>
-<!--        <td th:text="${przedmiot.pracownik_naukowy_id}">Kowalski</td>-->
-<!--        <td th:text="${przedmiot.max_ilosc_studentow}">fajne_hasło</td>-->
+        <td th:text="${przedmiot.prowadzacy.imie}">Kowalski</td>
+        <td th:text="${przedmiot.maxIloscStudentow}">fajne_hasło</td>
     </tr>
 </table>
 

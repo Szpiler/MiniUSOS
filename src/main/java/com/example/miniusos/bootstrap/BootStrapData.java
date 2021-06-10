@@ -42,11 +42,13 @@ public class BootStrapData implements CommandLineRunner {
         piotrek.getOceny().add(piatka);
         pJava.getStudenci().add(piotrek);
         pJava.getOceny().add(piatka);
+        pJava.setProwadzacy(profesor);
         piatka.setPrzedmiot(pJava);
         piatka.setStudent(piotrek);
         przedmiotRepository.save(pJava);
         studentRepository.save(piotrek);
         ocenaRepository.save(piatka);
+        pracownikNaukowyRepository.save(profesor);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Students: " + przedmiotRepository.count());

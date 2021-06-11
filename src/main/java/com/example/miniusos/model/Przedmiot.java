@@ -26,6 +26,10 @@ public class Przedmiot {
     @JoinColumn(name = "pracownik_naukowy_id")
     private PracownikNaukowy prowadzacy;
 
+    @OneToMany(cascade=CascadeType.ALL,
+            mappedBy = "przedmiot")
+    private Set<Kolokwium> kolokwia = new HashSet<>();
+
     public Przedmiot() {
     }
 
@@ -80,6 +84,14 @@ public class Przedmiot {
 
     public void setOceny(Set<Ocena> oceny) {
         this.oceny = oceny;
+    }
+
+    public Set<Kolokwium> getKolokwia() {
+        return kolokwia;
+    }
+
+    public void setKolokwia(Set<Kolokwium> kolokwia) {
+        this.kolokwia = kolokwia;
     }
 
     @Override

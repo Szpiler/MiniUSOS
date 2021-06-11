@@ -1,18 +1,12 @@
 package com.example.miniusos.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity(name = "pracownicy_dziekanatu")
 @Table(name = "pracownicy_dziekanatu")
 public class PracownikDziekanatu extends Uzytkownik {
     @Id
     private Long id;
-
-    @OneToMany(cascade= CascadeType.ALL,
-            mappedBy = "pracownikD")
-    private Set<Przedmiot> przedmioty = new HashSet<>();
 
     public PracownikDziekanatu(){
     }
@@ -30,19 +24,10 @@ public class PracownikDziekanatu extends Uzytkownik {
         this.id = index;
     }
 
-    public Set<Przedmiot> getPrzedmioty() {
-        return przedmioty;
-    }
-
-    public void setPrzedmioty(Set<Przedmiot> przedmioty) {
-        this.przedmioty = przedmioty;
-    }
-
     @Override
     public String toString() {
         return "PracownikDziekanatu{" +
                 "id=" + id +
-                ", przedmioty=" + przedmioty +
                 '}';
     }
 
@@ -53,7 +38,7 @@ public class PracownikDziekanatu extends Uzytkownik {
 
         PracownikDziekanatu that = (PracownikDziekanatu) o;
 
-        return przedmioty != null ? przedmioty.equals(that.przedmioty) : that.przedmioty == null;
+        return id != null ? id.equals(that.id) : that.id == null;
     }
 
     @Override

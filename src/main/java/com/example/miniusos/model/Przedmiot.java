@@ -26,10 +26,6 @@ public class Przedmiot {
     @JoinColumn(name = "pracownik_naukowy_id")
     private PracownikNaukowy prowadzacy;
 
-    @ManyToOne
-    @JoinColumn(name = "pracownik_dziekanatu_id")
-    private PracownikDziekanatu pracownikD;
-
     public Przedmiot() {
     }
 

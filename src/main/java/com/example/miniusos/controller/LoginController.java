@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Login form
     @RequestMapping("/login")
     public String login() {
@@ -19,6 +20,11 @@ public class LoginController {
     public String login()
     {
 >>>>>>> parent of e837290 (Working logging)
+=======
+    // Login form
+    @RequestMapping("/login")
+    public String login() {
+>>>>>>> parent of 03b37ea (Added Login Service)
 =======
     // Login form
     @RequestMapping("/login")

@@ -19,7 +19,10 @@
   <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-user"></i> Logowanie
+        <i class="fa fa-user"></i>
+        <center>
+          Zaloguj się do systemu USOS
+        </center>
       </div>
       <div class="card-block" style="padding: 24px;">
         <form name="f" th:action="@{/login}" method="post">
@@ -52,9 +55,16 @@
             </div>
 
             <!-- Login Button -->
-            <div class="form-actions" style="margin-top: 12px;">
-              <button type="submit" class="btn btn-success">Zaloguj</button>
-            </div>
+            <center>
+              <div class="form-actions" style="margin-top: 12px;">
+                <button type="submit" class="btn btn-success">Zaloguj</button>
+              </div>
+
+              <div class="form-actions" style="margin-top: 12px;">
+                <button type="button" onclick="window.location.href='/register';" class="btn btn-success">Zarejestruj się</button>
+              </div>
+            </center>
+
           </fieldset>
         </form>
       </div>

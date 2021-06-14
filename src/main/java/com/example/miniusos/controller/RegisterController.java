@@ -28,13 +28,13 @@ public class RegisterController {
         // tu może być jakaś walidacja danych etc
 
         if (errors.hasErrors()) {
-            //tu podajesz do jakiego widoku chcesz przełączyć przy błędzie (błędy typu niepoprawne dane w formularzu)
+            // tu podajesz do jakiego widoku chcesz przełączyć przy błędzie (błędy typu niepoprawne dane w formularzu)
             return "register/register";
         }
 
         registerService.register(registerForm);
 
-        //tu podajesz do jakiego widoku chcesz przełączyć po zarejestrowaniu
+        // tu podajesz do jakiego widoku chcesz przełączyć po zarejestrowaniu
         return "redirect:/register";
     }
 }

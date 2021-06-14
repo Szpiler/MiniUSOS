@@ -14,6 +14,7 @@ public class Przedmiot {
 
     private String nazwa;
     private int maxIloscStudentow;
+    private int obecnaIloscStudentow;
 
     @ManyToMany(mappedBy = "przedmioty")
     private Set<Student> studenci = new HashSet<>();
@@ -60,6 +61,14 @@ public class Przedmiot {
 
     public void setMaxIloscStudentow(int limit) {
         this.maxIloscStudentow = limit;
+    }
+
+    public int getObecnaIloscStudentow() {
+        return obecnaIloscStudentow;
+    }
+
+    public void setObecnaIloscStudentow(int obecnaIloscStudentow) {
+        this.obecnaIloscStudentow = obecnaIloscStudentow;
     }
 
     public PracownikNaukowy getProwadzacy() {

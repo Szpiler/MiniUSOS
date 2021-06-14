@@ -27,17 +27,11 @@ public class RegisterService {
     private PracownikDziekanatuRepository pracownikDziekanatuRepository;
 
     public Uzytkownik register(RegisterForm registerForm) {
-        // zdecyduj jakim rodzajem będzie nowy użytkownik (PracownikNaukowy czy Student etc...)
-        // przykład rejestracji encji Student
 
         if(registerForm.getType().equals("student")){
             Student student = new Student();
 
-            Iterator<Student> lastStudent = studentRepository.findAll(Sort.by("id")).iterator();
-            Long index = 1L;
-            if (lastStudent.hasNext()) {
-                index = lastStudent.next().getId() + 1;
-            }
+            Long index = studentRepository.count()+1;
 
             student.setId(index);
             student.setNumer_telefonu(registerForm.getNumer_telefonu());
@@ -53,11 +47,7 @@ public class RegisterService {
         {
             PracownikNaukowy pracownikNaukowy = new PracownikNaukowy();
 
-            Iterator<PracownikNaukowy> lastPracownikNaukowy = pracownikNaukowyRepository.findAll(Sort.by("id")).iterator();
-            Long index = 1L;
-            if (lastPracownikNaukowy.hasNext()) {
-                index = lastPracownikNaukowy.next().getId() + 1;
-            }
+            Long index = pracownikNaukowyRepository.count()+1;
 
             pracownikNaukowy.setId(index);
             pracownikNaukowy.setNumer_telefonu(registerForm.getNumer_telefonu());
@@ -73,11 +63,7 @@ public class RegisterService {
         {
             PracownikDziekanatu pracownikDziekanatu = new PracownikDziekanatu();
 
-            Iterator<PracownikDziekanatu> lastPracownikDziekanatu = pracownikDziekanatuRepository.findAll(Sort.by("id")).iterator();
-            Long index = 1L;
-            if (lastPracownikDziekanatu.hasNext()) {
-                index = lastPracownikDziekanatu.next().getId() + 1;
-            }
+            Long index = pracownikDziekanatuRepository.count()+1;
 
             pracownikDziekanatu.setId(index);
             pracownikDziekanatu.setNumer_telefonu(registerForm.getNumer_telefonu());

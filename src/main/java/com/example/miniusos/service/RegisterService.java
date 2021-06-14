@@ -30,7 +30,7 @@ public class RegisterService {
         // zdecyduj jakim rodzajem będzie nowy użytkownik (PracownikNaukowy czy Student etc...)
         // przykład rejestracji encji Student
 
-        if(registerForm.getType().equals("Student")){
+        if(registerForm.getType().equals("student")){
             Student student = new Student();
 
             Iterator<Student> lastStudent = studentRepository.findAll(Sort.by("id")).iterator();
@@ -49,7 +49,7 @@ public class RegisterService {
 
             return studentRepository.save(student);
         }
-        else if (registerForm.getType().equals("Pracownik Naukowy"))
+        else if (registerForm.getType().equals("pracownik_naukowy"))
         {
             PracownikNaukowy pracownikNaukowy = new PracownikNaukowy();
 

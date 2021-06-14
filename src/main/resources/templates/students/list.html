@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista studentów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+</head>
+<body>
+<a href="/przedmiots">Przedmioty | </a>
+<a href="/students">Studenci | </a>
+<a href="/adder">Dodawanie przedmiotu | </a>
+<a href="/oceny">Oceny | </a>
+<a href="/login">Logowanie</a>
+<h1>Lista studentów</h1>
+
+<table class="table table-bordered table-striped" style="width: 60%">
+    <tr>
+        <th>Indeks</th>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Numer telefonu</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Hasło</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}">BRAK</td>
+        <td th:text="${student.imie}">Jan</td>
+        <td th:text="${student.nazwisko}">Kowalski</td>
+        <td th:int="${student.numerTelefonu}">999 999 999</td>
+        <td th:text="${student.email}">xd@xd.com</td>
+        <td th:text="${student.login}">fajny_login</td>
+        <td th:text="${student.haslo}">fajne_hasło</td>
+    </tr>
+</table>
+</body>
+</html>

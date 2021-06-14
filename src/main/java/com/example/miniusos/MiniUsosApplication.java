@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MiniUsosApplication {
+public class MiniusosApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MiniUsosApplication.class, args);
+        SpringApplication.run(MiniusosApplication.class, args);
     }
 
 }

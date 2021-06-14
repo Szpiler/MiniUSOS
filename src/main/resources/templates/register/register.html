@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Rejestracja</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+</head>
+<body>
+
+<center>
+  <a href="/przedmiots">Przedmioty | </a>
+  <a href="/students">Studenci | </a>
+  <a href="/adder">Dodawanie przedmiotu | </a>
+  <a href="/oceny">Oceny | </a>
+  <a href="/login">Logowanie</a>
+</center>
+
+<div class="container-fluid text-center">
+  <!--  <div>-->
+  <!--    <img class="img-fluid" th:src="/@{/images/ShopmeAdminBig.png}" />-->
+  <!--  </div>-->
+  <form th:action="@{/register}" method="post" style="max-width: 350px; margin: 0 auto;">
+
+    <div th:if="${param.error}">
+      <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+    </div>
+
+    <div th:if="${param.logout}">
+      <p class="text-warning">You have been logged out.</p>
+    </div>
+
+    <div class="border border-secondary p-3 rounded">
+      <p>Rejestracja</p>
+      <p>
+        <input type="text" name="firstName" class="form-control" placeholder="Imię" required autofocus/>
+      </p>
+      <p>
+        <input type="text" name="lastName" class="form-control" placeholder="Nazwisko" required autofocus/>
+      </p>
+      <p>
+        <input type="email" name="email" class="form-control" placeholder="E-mail" required autofocus/>
+      </p>
+      <p>
+        <input type="password" name="password" class="form-control" placeholder="Hasło" required />
+      </p>
+      <p>
+        <input type="tel" name="phone_number" class="form-control" pattern="[0-9]{9}" placeholder="Format: 000 000 000" required />
+      </p>
+      <select name="type" id="type">
+        <option value="student">Student</option>
+        <option value="pracownik_naukowy">Pracownik Naukowy</option>
+        <option value="pracownik_dziekanatu">Pracownik Dziekanatu</option>
+        </option>
+      </select>
+      <p></p>
+      <p>
+        <input type="submit" value="Zarejestruj się" class="btn btn-primary" />
+      </p>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

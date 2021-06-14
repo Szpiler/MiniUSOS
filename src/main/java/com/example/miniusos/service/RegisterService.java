@@ -40,7 +40,7 @@ public class RegisterService {
             }
 
             student.setId(index);
-            //student.setNumer_telefonu(registerForm.getNumer_telefonu());
+            student.setNumer_telefonu(registerForm.getNumer_telefonu());
             student.setLogin(registerForm.getEmail());
             student.setImie(registerForm.getFirstName());
             student.setNazwisko(registerForm.getLastName());
@@ -60,7 +60,7 @@ public class RegisterService {
             }
 
             pracownikNaukowy.setId(index);
-            //pracownikNaukowy.setNumer_telefonu(registerForm.getNumer_telefonu());
+            pracownikNaukowy.setNumer_telefonu(registerForm.getNumer_telefonu());
             pracownikNaukowy.setLogin(registerForm.getEmail());
             pracownikNaukowy.setImie(registerForm.getFirstName());
             pracownikNaukowy.setNazwisko(registerForm.getLastName());

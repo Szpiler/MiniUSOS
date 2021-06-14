@@ -1,5 +1,6 @@
-package com.example.miniusos.security;
+package com.example.miniusos.service;
 
+import com.example.miniusos.model.MyUserDetails;
 import com.example.miniusos.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

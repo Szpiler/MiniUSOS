@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Logowanie</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+</head>
+<body>
+<a href="/przedmiots">Przedmioty | </a>
+<a href="/students">Studenci | </a>
+<a href="/adder">Dodawanie przedmiotu | </a>
+<a href="/oceny">Oceny | </a>
+<a href="/login">Logowanie</a>
+
+<div class="container">
+  <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-user"></i> Logowanie
+      </div>
+      <div class="card-block" style="padding: 24px;">
+        <form name="f" th:action="@{/login}" method="post">
+          <fieldset>
+            <!-- Thymeleaf + Spring Security error display -->
+            <div th:if="${param.error}" class="alert alert-danger">
+              Zła nazwa użytkownika lub hasło.
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+              You have been logged out.
+            </div>
+
+            <!-- Login Controls -->
+            <div class="form-group">
+              <label for="userName">Nazwa Użytkownika</label>
+              <input type="text" class="form-control" id="username" name="username"
+                     placeholder="Nazwa Użytkownika">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Hasło</label>
+              <input type="password" class="form-control" id="password" name="password"
+                     placeholder="Hasło">
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="checkRememberMe" name="checkRememberMe">
+              <label class="form-check-label" for="checkRememberMe">Zapamiętaj mnie?</label>
+            </div>
+
+            <!-- Login Button -->
+            <div class="form-actions" style="margin-top: 12px;">
+              <button type="submit" class="btn btn-success">Zaloguj</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

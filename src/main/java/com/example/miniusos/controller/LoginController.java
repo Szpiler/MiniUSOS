@@ -1,21 +1,32 @@
 package com.example.miniusos.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class LoginController {
 
+    @RequestMapping("/")
+    public String home()
+    {
+        return ("/login/home.html");
+    }
 
     // Login form
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String login()
     {
-        return "login/login_page";
+        return "/login/login.html";
+    }
+
+    @RequestMapping("/user")
+    public String user() {
+        return ("<h1>Welcome User</h1>");
+    }
+
+    @RequestMapping("/admin")
+    public String admin() {
+        return ("<h1>Welcome Admin</h1>");
     }
 
 //    // Login form with error

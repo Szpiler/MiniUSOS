@@ -5,6 +5,24 @@ public class RegisterForm {
     private String lastName;
     private String password;
     private String email;
+    private int numer_telefonu;
+    private String type;
+
+    public int getNumer_telefonu() {
+        return numer_telefonu;
+    }
+
+    public void setNumer_telefonu(int numer_telefonu) {
+        this.numer_telefonu = numer_telefonu;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getFirstName() {
         return firstName;

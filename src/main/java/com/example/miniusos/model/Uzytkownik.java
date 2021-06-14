@@ -28,11 +28,13 @@ public abstract class Uzytkownik {
     )
     private String email;
 
+
     @Column(
             name = "numer_telefonu",
-            nullable = false
+            nullable = false,
+            columnDefinition = "integer"
     )
-    private int numerTelefonu;
+    private int numer_telefonu;
 
     @Column(
             name = "login",
@@ -51,11 +53,11 @@ public abstract class Uzytkownik {
     public Uzytkownik() {
     }
 
-    public Uzytkownik(String imie, String nazwisko, String email, int numerTelefonu, String login, String haslo) {
+    public Uzytkownik(String imie, String nazwisko, String email, int numer_telefonu, String login, String haslo) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.email = email;
-        this.numerTelefonu = numerTelefonu;
+        this.numer_telefonu = numer_telefonu;
         this.login = login;
         this.haslo = haslo;
     }
@@ -84,12 +86,12 @@ public abstract class Uzytkownik {
         this.email = email;
     }
 
-    public int getNumerTelefonu() {
-        return numerTelefonu;
+    public int getNumer_telefonu() {
+        return numer_telefonu;
     }
 
-    public void setNumerTelefonu(int numerTelefonu) {
-        this.numerTelefonu = numerTelefonu;
+    public void setNumer_telefonu(int numer_telefonu) {
+        this.numer_telefonu = numer_telefonu;
     }
 
     public String getLogin() {
@@ -114,7 +116,7 @@ public abstract class Uzytkownik {
                 "imie='" + imie + '\'' +
                 ", nazwisko='" + nazwisko + '\'' +
                 ", email='" + email + '\'' +
-                ", numerTelefonu=" + numerTelefonu +
+                ", numerTelefonu=" + numer_telefonu +
                 ", login='" + login + '\'' +
                 '}';
     }

@@ -1,4 +1,4 @@
-package com.example.miniusos.security;
+package com.example.miniusos.model;
 
 import com.example.miniusos.model.User;
 import org.springframework.security.core.GrantedAuthority;

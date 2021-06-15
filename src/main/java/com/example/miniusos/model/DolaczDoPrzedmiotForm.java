@@ -1,44 +1,71 @@
 package com.example.miniusos.model;
 
+import java.util.List;
+
 public class DolaczDoPrzedmiotForm {
 
-    private int obecna_ilosc_studentow;
-    private Student student;
-    private Przedmiot przedmiot;
-    private Long id_przycisk;
+    private List<Przedmiot> przedmioty;
+    private boolean check0;
+    private boolean check1;
+    private boolean check2;
+    private boolean check3;
+    private boolean check4;
+    private boolean check5;
 
-    public Przedmiot getPrzedmiot() {
-        return przedmiot;
+
+    public List<Przedmiot> getPrzedmioty() {
+        return przedmioty;
     }
 
-    public void setPrzedmiot(Przedmiot przedmiot) {
-        this.przedmiot = przedmiot;
+    public void setPrzedmioty(List<Przedmiot> przedmioty) {
+        this.przedmioty = przedmioty;
     }
 
-    public Student getStudent() {
-        return student;
+    public boolean isCheck0() {
+        return check0;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setCheck0(boolean check0) {
+        this.check0 = check0;
     }
 
-    public Long getId_przycisk() {
-        return id_przycisk;
+    public boolean isCheck1() {
+        return check1;
     }
 
-    public void setId_przycisk(Long id_przycisk) {
-        this.id_przycisk = id_przycisk;
+    public void setCheck1(boolean check1) {
+        this.check1 = check1;
     }
 
-    public int getObecna_ilosc_studentow() {
-        return obecna_ilosc_studentow;
+    public boolean isCheck2() {
+        return check2;
     }
 
-    public void setObecna_ilosc_studentow(int obecna_ilosc_studentow) {
-        this.obecna_ilosc_studentow = obecna_ilosc_studentow;
+    public void setCheck2(boolean check2) {
+        this.check2 = check2;
     }
 
+    public boolean isCheck3() {
+        return check3;
+    }
 
+    public void setCheck3(boolean check3) {
+        this.check3 = check3;
+    }
 
+    public boolean isCheck4() {
+        return check4;
+    }
+
+    public void setCheck4(boolean check4) {
+        this.check4 = check4;
+    }
+
+    public boolean isCheck5() {
+        return check5;
+    }
+
+    public void setCheck5(boolean check5) {
+        this.check5 = check5;
+    }
 }

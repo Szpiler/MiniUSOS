@@ -9,7 +9,21 @@ public class LoginController {
     @RequestMapping("/")
     public String home()
     {
+<<<<<<< Updated upstream
         return ("/login/home.html");
+=======
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String role = auth.getAuthorities().toString();
+        if(auth.getAuthorities().toString().equals("[ROLE_ADMIN]"))
+            return ("/login/admin_page.html");
+        else if(auth.getAuthorities().toString().equals("[ROLE_STAFF]"))
+            return ("/login/staff_page.html");
+        else if(auth.getAuthorities().toString().equals("[ROLE_USER]"))
+            return ("/login/student_page.html");
+        else
+            return  ("/login/home.html");
+
+>>>>>>> Stashed changes
     }
 
     // Login form

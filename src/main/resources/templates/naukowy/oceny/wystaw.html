@@ -32,7 +32,7 @@
       </select>
       <p>Wybierz Studenta:</p>
       <select name="student">
-        <option th:each="student : ${wystaw.studenci}" th:valuetype="number" th:value="${student.imie}"  th:text="${student.nazwisko} + ' ' + ${student.nazwisko}">
+        <option th:each="student : ${studenci}" th:valuetype="number" th:value="${student.imie}"  th:text="${student.nazwisko} + ' ' + ${student.nazwisko}">
         </option>
       </select>
       <p>Wybierz ocenę:</p>

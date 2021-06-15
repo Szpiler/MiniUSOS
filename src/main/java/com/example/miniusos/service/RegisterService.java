@@ -4,10 +4,13 @@ import com.example.miniusos.model.PracownikNaukowy;
 import com.example.miniusos.model.PracownikDziekanatu;
 import com.example.miniusos.model.RegisterForm;
 import com.example.miniusos.model.Student;
+import com.example.miniusos.model.User;
+import com.example.miniusos.repositories.UserRepository;
 import com.example.miniusos.model.Uzytkownik;
 import com.example.miniusos.repositories.PracownikDziekanatuRepository;
 import com.example.miniusos.repositories.PracownikNaukowyRepository;
 import com.example.miniusos.repositories.StudentRepository;
+import com.example.miniusos.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -26,12 +29,21 @@ public class RegisterService {
     @Autowired
     private PracownikDziekanatuRepository pracownikDziekanatuRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public Uzytkownik register(RegisterForm registerForm) {
 
+        User user = new User();
         if(registerForm.getType().equals("student")){
             Student student = new Student();
 
             Long index = studentRepository.count()+1;
+
+            user.setActive(true);
+            user.setPassword(registerForm.getPassword());
+            user.setRoles("ROLE_USER");
+            user.setUserName(registerForm.getEmail());
 
             student.setId(index);
             student.setNumer_telefonu(registerForm.getNumer_telefonu());
@@ -41,6 +53,7 @@ public class RegisterService {
             student.setEmail(registerForm.getEmail());
             student.setHaslo(registerForm.getPassword());
 
+            userRepository.save(user);
             return studentRepository.save(student);
         }
         else if (registerForm.getType().equals("pracownik_naukowy"))
@@ -48,6 +61,21 @@ public class RegisterService {
             PracownikNaukowy pracownikNaukowy = new PracownikNaukowy();
 
             Long index = pracownikNaukowyRepository.count()+1;
+
+            user.setActive(true);
+            user.setPassword(registerForm.getPassword());
+            user.setRoles("ROLE_STAFF");
+            user.setUserName(registerForm.getEmail());
+
+            pracownikNaukowy.setId(index);
+            pracownikNaukowy.setNumer_telefonu(registerForm.getNumer_telefonu());
+            pracownikNaukowy.setLogin(registerForm.getEmail());
+            pracownikNaukowy.setImie(registerForm.getFirstName());
+            pracownikNaukowy.setNazwisko(registerForm.getLastName());
+            pracownikNaukowy.setEmail(registerForm.getEmail());
+            pracownikNaukowy.setHaslo(registerForm.getPassword());
+
+            userRepository.save(user);
 
             pracownikNaukowy.setId(index);
             pracownikNaukowy.setNumer_telefonu(registerForm.getNumer_telefonu());
@@ -64,6 +92,21 @@ public class RegisterService {
             PracownikDziekanatu pracownikDziekanatu = new PracownikDziekanatu();
 
             Long index = pracownikDziekanatuRepository.count()+1;
+
+            user.setActive(true);
+            user.setPassword(registerForm.getPassword());
+            user.setRoles("ROLE_ADMIN");
+            user.setUserName(registerForm.getEmail());
+
+            pracownikDziekanatu.setId(index);
+            pracownikDziekanatu.setNumer_telefonu(registerForm.getNumer_telefonu());
+            pracownikDziekanatu.setLogin(registerForm.getEmail());
+            pracownikDziekanatu.setImie(registerForm.getFirstName());
+            pracownikDziekanatu.setNazwisko(registerForm.getLastName());
+            pracownikDziekanatu.setEmail(registerForm.getEmail());
+            pracownikDziekanatu.setHaslo(registerForm.getPassword());
+
+            userRepository.save(user);
 
             pracownikDziekanatu.setId(index);
             pracownikDziekanatu.setNumer_telefonu(registerForm.getNumer_telefonu());

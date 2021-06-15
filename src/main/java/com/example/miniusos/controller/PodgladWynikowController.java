@@ -50,6 +50,6 @@ public class PodgladWynikowController {
             }
         }
         model.addAttribute("wyniks", oceny);
-        return "wyniks/list";
+        return "student/wyniks/list";
     }
 }

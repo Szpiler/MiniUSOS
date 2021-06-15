@@ -31,7 +31,7 @@ public class DolaczDoPrzedmiotController {
 
         if (errors.hasErrors()) {
             // tu podajesz do jakiego widoku chcesz przełączyć przy błędzie (błędy typu niepoprawne dane w formularzu)
-            return "register/register";
+            return "list/list";
         }
 
         dolaczDoPrzedmiotService.dolaczDoPrzedmiot(dolaczDoPrzedmiotForm);

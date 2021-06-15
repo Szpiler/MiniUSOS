@@ -1,11 +1,9 @@
 package com.example.miniusos.controller;
 
-import com.example.miniusos.model.PrzedmiotForm;
 import com.example.miniusos.model.WystawOceneForm;
 import com.example.miniusos.repositories.PracownikNaukowyRepository;
 import com.example.miniusos.repositories.PrzedmiotRepository;
 import com.example.miniusos.repositories.StudentRepository;
-import com.example.miniusos.service.PrzedmiotService;
 import com.example.miniusos.service.WystawOceneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -33,7 +31,7 @@ public class WystawOceneController {
     }
 
 
-    @RequestMapping("/oceny")
+    @RequestMapping("/wystaw")
     public String wystawOcene() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String role = auth.getAuthorities().toString();
@@ -43,7 +41,7 @@ public class WystawOceneController {
             return "authorize/error";
     }
 
-    @RequestMapping(value = "/oceny", method = RequestMethod.POST)
+    @RequestMapping(value = "/wystaw", method = RequestMethod.POST)
     public String wystawOcene(@ModelAttribute WystawOceneForm ocena, BindingResult errors, Model model) {
 
         if (errors.hasErrors()) {

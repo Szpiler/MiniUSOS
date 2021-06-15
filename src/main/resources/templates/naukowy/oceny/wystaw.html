@@ -27,12 +27,12 @@
       <p><h1>Wystaw ocenę z przedmiotu</h1></p>
       <p>Wybierz przedmiot:</p>
       <select name="przedmiot">
-        <option th:each="przedmiot : ${przedmiots}" th:valuetype="number" th:value="${przedmiot.id}"  th:text="${science_worker.imie} + ' ' + ${science_worker.nazwisko}">
+        <option th:each="przedmiot : ${wystaw}" th:valuetype="number" th:value="${przedmiot.id}"  th:text="${przedmiot.nazwa}">
         </option>
       </select>
       <p>Wybierz Studenta:</p>
       <select name="student">
-        <option th:each="student : ${students}" th:valuetype="number" th:value="${student.id}"  th:text="${student.imie} + ' ' + ${student.nazwisko}">
+        <option th:each="student : ${wystaw.studenci}" th:valuetype="number" th:value="${student.imie}"  th:text="${student.nazwisko} + ' ' + ${student.nazwisko}">
         </option>
       </select>
       <p>Wybierz ocenę:</p>

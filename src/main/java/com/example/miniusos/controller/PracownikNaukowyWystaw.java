@@ -51,6 +51,6 @@ public class PracownikNaukowyWystaw {
             }
         }
         model.addAttribute("wystaw", przedmioty2);
-        return "naukowy/ocemy/wystaw";
+        return "naukowy/oceny/wystaw";
     }
 }

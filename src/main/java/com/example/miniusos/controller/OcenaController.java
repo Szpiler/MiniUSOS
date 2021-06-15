@@ -30,8 +30,8 @@ public class OcenaController {
 
         for (Ocena ocena : all)
         {
-            if( ocena.getOcena() == 5) {
-                ocena.setOcena(4);
+            if( ocena.getOcena() == 0) {
+                ocena.setOcena(5);
                 ocenaRepository.save(ocena);
             }
         }

@@ -29,10 +29,9 @@ public class LoginController {
         return ("<h1>Welcome Admin</h1>");
     }
 
-//    // Login form with error
-//    @RequestMapping("/login-error.html")
-//    public String loginError(Model model) {
-//        model.addAttribute("loginError", true);
-//        return "login.html";
-//    }
+    // Login form with error
+    @RequestMapping("/login_error")
+    public String loginError() {
+        return "login/login_error.html";
+    }
 }

@@ -35,8 +35,7 @@ public class DolaczDoPrzedmiotService {
     public Przedmiot dolaczDoPrzedmiot(DolaczDoPrzedmiotForm dolaczDoPrzedmiotForm) {
 
 
-        dolaczDoPrzedmiotForm.setStudent(dolaczDoPrzedmiotForm.getStudent());
-        przedmiotRepository.save(dolaczDoPrzedmiotForm.getPrzedmiot());
+
 
         return przedmiotRepository.save(dolaczDoPrzedmiotForm.getPrzedmiot());
     }

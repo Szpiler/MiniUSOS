@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista przedmiotów</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+</head>
+<body>
+<center>
+  <a href="/przedmiots">Przedmioty | </a>
+  <a href="/wystaw">Wystaw ocenę | </a>
+  <a href="/login">Logowanie |</a>
+  <a href="/logout">Wyloguj</a>
+</center>
+
+<h1>Przedmiot</h1>
+
+<table class="table table-bordered table-striped" style="width: 60%">
+  <tr>
+    <th>Student</th>
+    <th>Ocena</th>
+  </tr>
+  <tr th:each="student : ${students}">
+    <td th:text="${student.imie} + ' ' + ${student.nazwisko}"></td>
+    <td th:text="${student.ocena}"></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -71,6 +71,8 @@ public class Ocena {
         return "Ocena{" +
                 "id=" + id +
                 ", ocena=" + ocena +
+                ", student=" + student +
+                ", przedmiot=" + przedmiot +
                 '}';
     }
 

@@ -26,7 +26,7 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Student piotrek = new Student("Piotrek", "Jaworski", "jp@gmail.com", 123456789, "piti", "1111", 1223348L);
+        Student piotrek = new Student("Piotrek", "Jaworski", "jp@gmail.com", 123456789, "jp@gmail.com", "1111", 1223348L);
         Przedmiot pJava = new Przedmiot("java", 15);
         Ocena piatka = new Ocena(5);
         PracownikNaukowy profesor = new PracownikNaukowy("Paweł", "Nauczycielski", "pn@gmail.com", 889012, "NauczycielPawel", "1111", 85674L);

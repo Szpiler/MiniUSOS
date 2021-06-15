@@ -13,20 +13,19 @@
 <a href="/adder">Dodawanie przedmiotu | </a>
 <a href="/oceny">Oceny | </a>
 <a href="/login">Logowanie</a>
+
 <h1>Lista ocen</h1>
 
 <table class="table table-bordered table-striped" style="width: 60%">
   <tr>
-    <th>ID</th>
     <th>Nazwa</th>
     <th>Prowadzący</th>
-    <th>Liczba studentów</th>
+    <th>Ocena</th>
   </tr>
   <tr th:each="wynik : ${wyniks}">
-    <td th:text="${wynik.id}">BRAK</td>
-    <td th:text="${wynik.ocena}">Jan</td>
-    <td th:text="${wynik.przedmioty_id}">Kowalski</td>
-    <td th:text="${wynik.studenci_id}">Kowalski</td>
+    <td th:text="${wynik.przedmiot.nazwa}">BRAK</td>
+    <td th:text="${wynik.przedmiot.prowadzacy.imie} + ' ' + ${wynik.przedmiot.prowadzacy.nazwisko}">Jan</td>
+    <td th:text="${wynik.ocena}">Kowalski</td>
   </tr>
 </table>
 </body>

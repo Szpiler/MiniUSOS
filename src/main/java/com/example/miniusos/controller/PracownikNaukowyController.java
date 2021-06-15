@@ -6,6 +6,8 @@ import com.example.miniusos.repositories.PracownikNaukowyRepository;
 import com.example.miniusos.service.PrzedmiotService;
 import com.example.miniusos.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,8 +28,13 @@ public class PracownikNaukowyController {
     public String setPracownikNaukowy()
     {
         //model.addAttribute("science_workers", pracownikNaukowyRepository.findAll());
-
-        return "add/add";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String role = auth.getAuthorities().toString();
+        if(auth.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
+            return "add/add";
+        }
+        else
+            return "authorize/error";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)

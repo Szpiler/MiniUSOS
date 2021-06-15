@@ -4,6 +4,7 @@ import com.example.miniusos.model.*;
 import com.example.miniusos.repositories.PracownikNaukowyRepository;
 import com.example.miniusos.repositories.PrzedmiotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +31,17 @@ public class PrzedmiotService {
         przedmiot.setProwadzacy(wykladowca.get());
         return  przedmiotRepository.save(przedmiot);
     }
+
+    public List<Przedmiot> getPrzedmiotList( int id) throws UsernameNotFoundException {
+        List<Przedmiot> przedmioty = przedmiotRepository.findAll();
+        List <Przedmiot> tempPrzedmioty = przedmiotRepository.findAll();
+        for (Przedmiot przedmiot:tempPrzedmioty)
+        {
+            if ( Math.toIntExact(przedmiot.getProwadzacy().getId()) != id)
+                przedmioty.remove(przedmiot);
+        }
+        //List<Przedmiot> przedmioty = przedmiotRepository.findByProawdzacy(pracownikNaukowyRepository.findByNazwisko(nazwisko).get());
+        return przedmioty;
+    }
+
 }

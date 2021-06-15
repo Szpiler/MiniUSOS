@@ -8,17 +8,21 @@
           crossorigin="anonymous" />
 </head>
 <body>
-<a href="/przedmiots">Przedmioty | </a>
-<a href="/students">Studenci | </a>
-<a href="/add">Dodawanie przedmiotu | </a>
-<a href="/oceny">Oceny | </a>
-<a href="/login">Logowanie</a>
+<center>
+    <a href="/przedmiotsAll">Przedmioty | </a>
+    <a href="/add">Dodawanie przedmiotu | </a>
+    <a href="/studentsAll">Studenci | </a>
+    <a href="/ocenyAll">Oceny | </a>
+    <a href="/login">Logowanie |</a>
+    <a href="/logout">Wyloguj </a>
+</center>
+
 
 <div class="container-fluid text-center">
     <!--  <div>-->
     <!--    <img class="img-fluid" th:src="/@{/images/ShopmeAdminBig.png}" />-->
     <!--  </div>-->
-    <form th:action="@{/templates/dziekanat/add}" method="post" style="max-width: 350px; margin: 0 auto;">
+    <form th:action="@{/add}" method="post" style="max-width: 350px; margin: 0 auto;">
 
 
         <div class="border border-secondary p-3 rounded">
@@ -29,9 +33,12 @@
             <p>Maksymalna ilość studentów:
                 <input type="number" name="maxIloscStudentow" class="form-control"  required autofocus/>
             </p>
-            <p>Wpisz nazwisko prowadzącego przedmiot :
-                <input type="text" name="nauczyciel" class="form-control"  required autofocus/>
-            </p>
+            <p>Wybierz prowadzącego przedmiotu:</p>
+            <select name="nauczyciel">
+                <option th:each="science_worker : ${science_workers}" th:valuetype="text" th:value="${science_worker.nazwisko}"  th:text="${science_worker.imie} + ' ' + ${science_worker.nazwisko}">
+                </option>
+            </select>
+            <p></p>
             <p>
                 <input type="submit" value="Dodaj przedmiot" class="btn btn-primary" />
             </p>

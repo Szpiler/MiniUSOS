@@ -8,25 +8,25 @@
           crossorigin="anonymous" />
 </head>
 <body>
-<a href="/przedmiots">Przedmioty | </a>
-<a href="/students">Studenci | </a>
-<a href="/oceny">Oceny | </a>
-<a href="/logout">Wyloguj</a>
+<center>
+    <a href="/przedmiots">Przedmioty | </a>
+    <a href="/wystaw">Wystaw ocenę | </a>
+    <a href="/login">Logowanie |</a>
+    <a href="/logout">Wyloguj</a>
+</center>
 
-<h1>Lista przedmiotów, do których jesteś zapisany</h1>
+<h1>Lista przedmiotów których jesteś prowadzącym</h1>
 
 <table class="table table-bordered table-striped" style="width: 60%">
     <tr>
-        <th>ID</th>
         <th>Nazwa</th>
         <th>Prowadzący</th>
-        <th>Liczba studentów</th>
+        <th>Liczba Studentów</th>
     </tr>
     <tr th:each="przedmiot : ${przedmiots}">
-        <td th:text="${przedmiot.id}">BRAK</td>
         <td><a href="/adder" th:text="${przedmiot.nazwa}">Jan</a></td>
         <td th:text="${przedmiot.prowadzacy.imie} + ' ' + ${przedmiot.prowadzacy.nazwisko}">Kowalski</td>
-        <td th:text="'0' + '/' + ${przedmiot.maxIloscStudentow}">fajne_hasło</td>
+        <td th:text="${przedmiot.obecnaIloscStudentow} + '/' + ${przedmiot.maxIloscStudentow}">fajne_hasło</td>
     </tr>
 </table>
 </body>

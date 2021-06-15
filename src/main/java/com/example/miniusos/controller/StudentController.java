@@ -13,7 +13,7 @@ public class StudentController {
 
     public StudentController(StudentRepository studentRepository) {this.studentRepository = studentRepository;}
 
-    @RequestMapping("/students")
+    @RequestMapping("/studentsAll")
     public String getStudents(Model model)
     {
         model.addAttribute("students", studentRepository.findAll());

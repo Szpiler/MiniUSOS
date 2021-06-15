@@ -9,23 +9,22 @@
 </head>
 <body>
 <center>
-  <a href="/przedmiots">Zapis na przedmioty | </a>
-  <a href="/wyniks">Uczęszczane przedmioty | </a>
+  <a href="/przedmiots">Przedmioty | </a>
+  <a href="/wystaw">Wystaw ocenę | </a>
   <a href="/login">Logowanie |</a>
   <a href="/logout">Wyloguj</a>
 </center>
-<h1>Lista przedmiotów</h1>
+
+<h1>Przedmiot</h1>
 
 <table class="table table-bordered table-striped" style="width: 60%">
   <tr>
-    <th>Nazwa</th>
-    <th>Prowadzący</th>
+    <th>Student</th>
     <th>Ocena</th>
   </tr>
-  <tr th:each="wynik : ${wyniks}">
-    <td th:text="${wynik.przedmiot.nazwa}">BRAK</td>
-    <td th:text="${wynik.przedmiot.prowadzacy.imie} + ' ' + ${wynik.przedmiot.prowadzacy.nazwisko}">Jan</td>
-    <td th:text="${wynik.ocena}">Kowalski</td>
+  <tr th:each="student : ${students}">
+    <td th:text="${student.imie} + ' ' + ${student.nazwisko}"></td>
+    <td th:text="${student.ocena}"></td>
   </tr>
 </table>
 </body>

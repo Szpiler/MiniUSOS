@@ -25,9 +25,9 @@ public class PracownikNaukowyController {
     public PracownikNaukowyController(PracownikNaukowyRepository pracownikNaukowyRepository) {this.pracownikNaukowyRepository = pracownikNaukowyRepository;}
 
     @RequestMapping("/add")
-    public String setPracownikNaukowy()
+    public String setPracownikNaukowy(Model model)
     {
-        //model.addAttribute("science_workers", pracownikNaukowyRepository.findAll());
+        model.addAttribute("science_workers", pracownikNaukowyRepository.findAll());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String role = auth.getAuthorities().toString();
         if(auth.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
@@ -47,6 +47,6 @@ public class PracownikNaukowyController {
 
         przedmiotService.add(przedmiot);
 
-        return "dziekanat/adder/add";
+        return "dziekanat/add/add";
     }
 }

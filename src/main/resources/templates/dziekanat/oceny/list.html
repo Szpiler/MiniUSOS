@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista studentów</title>
+    <title>Lista przedmiotów</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous" />
@@ -16,22 +16,20 @@
     <a href="/login">Logowanie |</a>
     <a href="/logout">Wyloguj </a>
 </center>
-<h1>Lista studentów</h1>
+<h1>Lista ocen ze wszystkich przedmiotów</h1>
 
 <table class="table table-bordered table-striped" style="width: 60%">
     <tr>
-        <th>Indeks</th>
-        <th>Imie</th>
-        <th>Nazwisko</th>
-        <th>Numer telefonu</th>
-        <th>Email</th>
+        <th>Przedmiot</th>
+        <th>Prowadzący</th>
+        <th>Student</th>
+        <th>Ocena</th>
     </tr>
-    <tr th:each="student : ${students}">
-        <td th:text="${student.id}">BRAK</td>
-        <td th:text="${student.imie}">Jan</td>
-        <td th:text="${student.nazwisko}">Kowalski</td>
-        <td th:int="${student.numer_telefonu}">999 999 999</td>
-        <td th:text="${student.email}">xd@xd.com</td>
+    <tr th:each="ocena : ${oceny}">
+        <td th:text="${ocena.przedmiot.nazwa}">BRAK</td>
+        <td th:text="${ocena.przedmiot.prowadzacy.imie} + ' ' + ${ocena.przedmiot.prowadzacy.nazwisko}">Jan</td>
+        <td th:text="${ocena.student.imie} + ' ' + ${ocena.student.nazwisko}">Jan</td>
+        <td th:text="${ocena.ocena}">Jan</td>
     </tr>
 </table>
 </body>

@@ -55,7 +55,7 @@ public class LoginController {
     }
 
     // Login form with error
-    @RequestMapping("/login_error")
+    @RequestMapping("/login-error")
     public String loginError() {
         return "login/login_error.html";
     }

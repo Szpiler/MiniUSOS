@@ -2,6 +2,7 @@ package com.example.miniusos.controller;
 
 import com.example.miniusos.model.PracownikNaukowy;
 import com.example.miniusos.model.Przedmiot;
+import com.example.miniusos.model.Student;
 import com.example.miniusos.repositories.PracownikNaukowyRepository;
 import com.example.miniusos.repositories.PrzedmiotRepository;
 import org.springframework.security.core.Authentication;
@@ -14,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class PracownikNaukowyWystaw {
+public class PracownikNaukowyWystawController {
     private final PracownikNaukowyRepository pracownikNaukowyRepository;
     private final PrzedmiotRepository przedmiotRepository;
 
-    public PracownikNaukowyWystaw(PracownikNaukowyRepository pracownikNaukowyRepository, PrzedmiotRepository przedmiotRepository) {
+    public PracownikNaukowyWystawController(PracownikNaukowyRepository pracownikNaukowyRepository, PrzedmiotRepository przedmiotRepository) {
         this.pracownikNaukowyRepository = pracownikNaukowyRepository;
         this.przedmiotRepository = przedmiotRepository;
     }
@@ -41,6 +42,7 @@ public class PracownikNaukowyWystaw {
         }
         List<Przedmiot> przedmioty = new ArrayList<>();
         List<Przedmiot> przedmioty2 = new ArrayList<>();
+        List<Student> studenci = new ArrayList<>();
         przedmiotRepository.findAll().forEach(przedmioty::add);
         for(Przedmiot p: przedmioty)
         {
@@ -48,9 +50,14 @@ public class PracownikNaukowyWystaw {
             if(pom == indeks)
             {
                 przedmioty2.add(p);
+                for(Student s: p.getStudenci())
+                {
+                    studenci.add(s);
+                }
             }
         }
         model.addAttribute("wystaw", przedmioty2);
-        return "naukowy/oceny/wystaw";
+        model.addAttribute("studenci", studenci);
+        return "naukowy/ocemy/wystaw";
     }
 }

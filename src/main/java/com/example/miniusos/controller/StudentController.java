@@ -18,6 +18,6 @@ public class StudentController {
     {
         model.addAttribute("students", studentRepository.findAll());
 
-        return "students/list";
+        return "dziekanat/students/list";
     }
 }

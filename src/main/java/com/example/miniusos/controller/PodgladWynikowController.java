@@ -6,7 +6,6 @@ import com.example.miniusos.repositories.OcenaRepository;
 import com.example.miniusos.repositories.StudentRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,16 +27,29 @@ public class PodgladWynikowController {
     {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Long indeks = -1L;
-        Optional<Student> student = studentRepository.findByLogin(auth.getPrincipal().toString());
-        student.orElseThrow(() -> new UsernameNotFoundException("Nie znaleziono: "));
-        Set<Ocena> oceny = student.get().getOceny();
-        for(Iterator<Ocena> it = oceny.iterator(); it.hasNext();)
+        String username = auth.getName();
+        List<Student> studenci = new ArrayList<>();
+        studentRepository.findAll().forEach(studenci::add);
+        for (Student s:studenci)
         {
-            Ocena o = it.next();
-            indeks = o.getId();
+            String pom = s.getLogin();
+            if(pom.equals(username))
+            {
+                indeks = s.getId();
+            }
         }
-        model.addAttribute("wyniks", ocenaRepository.getById(indeks));
-        auth.getPrincipal();
-        return "wyniks/list";
+        List<Ocena> oceny = new ArrayList<>();
+        List<Ocena> ocenki = new ArrayList<>();
+        ocenaRepository.findAll().forEach(ocenki::add);
+        for (Ocena o:ocenki)
+        {
+            Long pom = o.getStudent().getId();
+            if(pom == indeks)
+            {
+                oceny.add(o);
+            }
+        }
+        model.addAttribute("wyniks", oceny);
+        return "student/wyniks/list";
     }
 }

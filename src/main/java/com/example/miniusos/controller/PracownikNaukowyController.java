@@ -47,7 +47,6 @@ public class PracownikNaukowyController {
 
         przedmiotService.add(przedmiot);
 
-        // tu podajesz do jakiego widoku chcesz przełączyć po zarejestrowaniu
-        return "redirect:/add";
+        return "dziekanat/adder/add";
     }
 }

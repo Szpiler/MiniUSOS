@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista przedmiotów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+</head>
+<body>
+<a href="/przedmiots">Przedmioty | </a>
+<a href="/students">Studenci | </a>
+<a href="/add">Dodawanie przedmiotu | </a>
+<a href="/oceny">Oceny | </a>
+<a href="/login">Logowanie</a>
+<a href="/logout">Wyloguj</a>
+<h1>Lista przedmiotów</h1>
+    <table class="table table-bordered table-striped" style="width: 60%">
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Prowadzący</th>
+            <th>Liczba studentów</th>
+        </tr>
+        <tr th:each="przedmiot : ${przedmiots}">
+            <td th:text="${przedmiot.id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiot.nazwa}">Jan</a></td>
+            <td th:text="${przedmiot.prowadzacy.imie} + ' ' + ${przedmiot.prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiot.maxIloscStudentow}">fajne_hasło</td>
+            <td>
+                <div class="form-actions" style="margin-top: 12px;">
+                <button th:name="${przedmiot.id}" type="submit" class="btn btn-success">Dołącz do grupy</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

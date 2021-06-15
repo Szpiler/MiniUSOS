@@ -59,7 +59,7 @@ public class PracownikNaukowyWystawController {
         return "naukowy/oceny/wystaw";
     }
 
-    @RequestMapping("/wystaw")
+    @RequestMapping("/wystaw/all")
     public String listPrzedmiotow(Model model)
     {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -93,6 +93,6 @@ public class PracownikNaukowyWystawController {
         }
         model.addAttribute("wystaw", przedmioty2);
         model.addAttribute("studenci", studenci);
-        return "naukowy/ocemy/wystaw";
+        return "naukowy/oceny/wystaw";
     }
 }

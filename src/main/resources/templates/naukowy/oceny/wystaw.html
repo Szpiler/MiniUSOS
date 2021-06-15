@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Dodaj przedmiot</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous" />
+</head>
+<body>
+<center>
+  <a href="/przedmiots">Przedmioty | </a>
+  <a href="/wystaw">Wystaw ocenę | </a>
+  <a href="/login">Logowanie |</a>
+  <a href="/logout">Wyloguj</a>
+</center>
+
+
+<div class="container-fluid text-center">
+  <!--  <div>-->
+  <!--    <img class="img-fluid" th:src="/@{/images/ShopmeAdminBig.png}" />-->
+  <!--  </div>-->
+  <form th:action="@{/wystaw}" method="post" style="max-width: 350px; margin: 0 auto;">
+
+
+    <div class="border border-secondary p-3 rounded">
+      <p><h1>Wystaw ocenę z przedmiotu</h1></p>
+      <p>Wybierz przedmiot:</p>
+      <select name="przedmiot">
+        <option th:each="przedmiot : ${przedmiots}" th:valuetype="number" th:value="${przedmiot.id}"  th:text="${science_worker.imie} + ' ' + ${science_worker.nazwisko}">
+        </option>
+      </select>
+      <p>Wybierz Studenta:</p>
+      <select name="student">
+        <option th:each="student : ${students}" th:valuetype="number" th:value="${student.id}"  th:text="${student.imie} + ' ' + ${student.nazwisko}">
+        </option>
+      </select>
+      <p>Wybierz ocenę:</p>
+      <select name="ocena">
+        <option th:valuetype="number" th:value="2">2</option>
+        <option th:valuetype="number" th:value="3">3</option>
+        <option th:valuetype="number" th:value="4">4</option>
+        <option th:valuetype="number" th:value="5">5</option>
+      </select>
+      <p></p>
+      <p>
+        <input type="submit" value="Wystaw Ocenę" class="btn btn-primary" />
+      </p>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>
+

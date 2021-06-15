@@ -8,12 +8,13 @@
           crossorigin="anonymous" />
 </head>
 <body>
-<a href="/przedmiots">Przedmioty | </a>
-<a href="/students">Studenci | </a>
-<a href="/add">Dodawanie przedmiotu | </a>
-<a href="/oceny">Oceny | </a>
-<a href="/login">Logowanie</a>
-<a href="/logout">Wyloguj</a>
+<center>
+    <a href="/przedmiots">Zapis na przedmioty | </a>
+    <a href="/wyniks">Uczęszczane przedmioty | </a>
+    <a href="/login">Logowanie |</a>
+    <a href="/logout">Wyloguj</a>
+</center>
+
 <h1>Lista przedmiotów</h1>
 <form name="f" th:action="@{/templates/przedmiots/list}" method="post">
     <table class="table table-bordered table-striped" style="width: 60%">

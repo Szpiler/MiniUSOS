@@ -10,22 +10,21 @@
 <body>
 <center>
   <a href="/przedmiots">Przedmioty | </a>
+  <a href="/wystaw">Wystaw ocenę | </a>
   <a href="/login">Logowanie |</a>
   <a href="/logout">Wyloguj</a>
 </center>
 
-<h1>Wystaw ocenę</h1>
+<h1>Przedmiot</h1>
 
 <table class="table table-bordered table-striped" style="width: 60%">
   <tr>
-    <th>Przedmiot</th>
     <th>Student</th>
     <th>Ocena</th>
   </tr>
-  <tr th:each="ocena : ${oceny}">
-    <td th:text="${ocena.przedmiot.nazwa}"></td>
-    <td th:text="${ocena.student.imie} + ' ' + ${ocena.student.nazwisko}"></td>
-    <td th:text="${ocena.ocena}"></td>
+  <tr th:each="student : ${students}">
+    <td th:text="${student.imie} + ' ' + ${student.nazwisko}"></td>
+    <td th:text="${student.ocena}"></td>
   </tr>
 </table>
 </body>

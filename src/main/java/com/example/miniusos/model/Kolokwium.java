@@ -13,6 +13,7 @@ public class Kolokwium {
     @JoinColumn(name = "przedmiot_id")
     private Przedmiot przedmiot;
 
+
     private String nazwa;
 
     private int maxIloscPunktow;

@@ -30,7 +30,11 @@
             <td><a href="/adder" th:text="${przedmiot.nazwa}">Jan</a></td>
             <td th:text="${przedmiot.prowadzacy.imie} + ' ' + ${przedmiot.prowadzacy.nazwisko}">Kowalski</td>
             <td th:text="'0' + '/' + ${przedmiot.maxIloscStudentow}">fajne_hasło</td>
-            <td><button class="btn btn-secondary"><a href="/register">Dołącz do grupy</a></button></td>
+            <td>
+                <div class="form-actions" style="margin-top: 12px;">
+                <button th:name="${przedmiot.id}" type="submit" class="btn btn-success">Dołącz do grupy</button>
+                </div>
+            </td>
         </tr>
     </table>
 </body>

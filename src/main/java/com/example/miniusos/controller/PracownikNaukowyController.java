@@ -47,6 +47,6 @@ public class PracownikNaukowyController {
 
         przedmiotService.add(przedmiot);
 
-        return "dziekanat/adder/add";
+        return "dziekanat/add/add";
     }
 }

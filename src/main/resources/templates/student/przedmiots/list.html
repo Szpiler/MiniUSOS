@@ -15,24 +15,144 @@
 <a href="/login">Logowanie</a>
 <a href="/logout">Wyloguj</a>
 <h1>Lista przedmiotów</h1>
+<form name="f" th:action="@{/templates/przedmiots/list}" method="post">
     <table class="table table-bordered table-striped" style="width: 60%">
         <tr>
             <th>ID</th>
             <th>Nazwa</th>
             <th>Prowadzący</th>
             <th>Liczba studentów</th>
+            <th>Zapis</th>
         </tr>
-        <tr th:each="przedmiot : ${przedmiots}">
-            <td th:text="${przedmiot.id}">BRAK</td>
-            <td><a href="/adder" th:text="${przedmiot.nazwa}">Jan</a></td>
-            <td th:text="${przedmiot.prowadzacy.imie} + ' ' + ${przedmiot.prowadzacy.nazwisko}">Kowalski</td>
-            <td th:text="'0' + '/' + ${przedmiot.maxIloscStudentow}">fajne_hasło</td>
+        <tr>
+            <td th:text="${przedmiots.get(0).id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiots.get(0).nazwa}">Jan</a></td>
+            <td th:text="${przedmiots.get(0).prowadzacy.imie} + ' ' + ${przedmiots.get(0).prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiots.get(0).maxIloscStudentow}">fajne_hasło</td>
             <td>
-                <div class="form-actions" style="margin-top: 12px;">
-                <button th:name="${przedmiot.id}" type="submit" class="btn btn-success">Dołącz do grupy</button>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="check0" id="check0" value="true">
+                <label class="form-check-label" for="check0">
+                    Zapisz mnie
+                </label>
+            </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check0" id="check0" value="false" checked>
+                    <label class="form-check-label" for="check0">
+                        Nie zapisuj mnie
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="${przedmiots.get(1).id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiots.get(1).nazwa}">Jan</a></td>
+            <td th:text="${przedmiots.get(1).prowadzacy.imie} + ' ' + ${przedmiots.get(1).prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiots.get(1).maxIloscStudentow}">fajne_hasło</td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check1" id="check1" value="true">
+                    <label class="form-check-label" for="check1">
+                        Zapisz mnie
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check1" id="check1" value="false" checked>
+                    <label class="form-check-label" for="check1">
+                        Nie zapisuj mnie
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="${przedmiots.get(2).id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiots.get(2).nazwa}">Jan</a></td>
+            <td th:text="${przedmiots.get(2).prowadzacy.imie} + ' ' + ${przedmiots.get(2).prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiots.get(2).maxIloscStudentow}">fajne_hasło</td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check2" id="check2" value="true">
+                    <label class="form-check-label" for="check2">
+                        Zapisz mnie
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check2" id="check2" value="false" checked>
+                    <label class="form-check-label" for="check2">
+                        Nie zapisuj mnie
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="${przedmiots.get(3).id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiots.get(3).nazwa}">Jan</a></td>
+            <td th:text="${przedmiots.get(3).prowadzacy.imie} + ' ' + ${przedmiots.get(3).prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiots.get(3).maxIloscStudentow}">fajne_hasło</td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check3" id="check3" value="true">
+                    <label class="form-check-label" for="check3">
+                        Zapisz mnie
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check3" id="check3" value="false" checked>
+                    <label class="form-check-label" for="check3">
+                        Nie zapisuj mnie
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="${przedmiots.get(4).id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiots.get(4).nazwa}">Jan</a></td>
+            <td th:text="${przedmiots.get(4).prowadzacy.imie} + ' ' + ${przedmiots.get(4).prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiots.get(4).maxIloscStudentow}">fajne_hasło</td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check4" id="check4" value="true">
+                    <label class="form-check-label" for="check4">
+                        Zapisz mnie
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check4" id="check4" value="false" checked>
+                    <label class="form-check-label" for="check4">
+                        Nie zapisuj mnie
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td th:text="${przedmiots.get(5).id}">BRAK</td>
+            <td><a href="/adder" th:text="${przedmiots.get(5).nazwa}">Jan</a></td>
+            <td th:text="${przedmiots.get(5).prowadzacy.imie} + ' ' + ${przedmiots.get(5).prowadzacy.nazwisko}">Kowalski</td>
+            <td th:text="'0' + '/' + ${przedmiots.get(5).maxIloscStudentow}">fajne_hasło</td>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check5" id="check5" value="true">
+                    <label class="form-check-label" for="check5">
+                        Zapisz mnie
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check5" id="check5" value="false" checked>
+                    <label class="form-check-label" for="check5">
+                        Nie zapisuj mnie
+                    </label>
                 </div>
             </td>
         </tr>
     </table>
+</form>
+<center>
+    <div class="form-actions" style="margin-top: 12px;">
+        <button type="submit" class="btn btn-success">Zapisz</button>
+    </div>
+</center>
 </body>
 </html>
+<!--<div class="form-actions" style="margin-top: 12px;">-->
+<!--    <button th:name="${przedmiot.id}" type="submit" class="btn btn-success">Dołącz do grupy</button>-->
+<!--</div>-->

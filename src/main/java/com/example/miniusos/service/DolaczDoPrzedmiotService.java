@@ -1,6 +1,5 @@
 package com.example.miniusos.service;
 
-<<<<<<< HEAD
 import com.example.miniusos.model.PracownikNaukowy;
 import com.example.miniusos.model.PracownikDziekanatu;
 import com.example.miniusos.model.RegisterForm;
@@ -8,10 +7,8 @@ import com.example.miniusos.model.Student;
 import com.example.miniusos.model.User;
 import com.example.miniusos.model.Przedmiot;
 import com.example.miniusos.model.DolaczDoPrzedmiotForm;
-=======
-
 import com.example.miniusos.model.*;
->>>>>>> 424f6a2fbddeafaa04bceb1d1e76b9b77f5cc302
+
 import com.example.miniusos.service.DolaczDoPrzedmiotService;
 import com.example.miniusos.repositories.PrzedmiotRepository;
 import com.example.miniusos.repositories.UserRepository;
@@ -40,7 +37,7 @@ public class DolaczDoPrzedmiotService {
 
         dolaczDoPrzedmiotForm.setStudent(dolaczDoPrzedmiotForm.getStudent());
         przedmiotRepository.save(dolaczDoPrzedmiotForm.getPrzedmiot());
-        
+
         return przedmiotRepository.save(dolaczDoPrzedmiotForm.getPrzedmiot());
     }
 }

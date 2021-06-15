@@ -35,6 +35,6 @@ public class RegisterController {
         registerService.register(registerForm);
 
         // tu podajesz do jakiego widoku chcesz przełączyć po zarejestrowaniu
-        return "redirect:/register";
+        return "redirect:/";
     }
 }

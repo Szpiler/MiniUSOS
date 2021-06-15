@@ -1,5 +1,9 @@
 package com.example.miniusos.controller;
 
+import com.example.miniusos.model.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +13,17 @@ public class LoginController {
     @RequestMapping("/")
     public String home()
     {
-        return ("/login/home.html");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String role = auth.getAuthorities().toString();
+        if(auth.getAuthorities().toString().equals("[ROLE_ADMIN]"))
+            return ("/login/admin_page.html");
+        else if(auth.getAuthorities().toString().equals("[ROLE_STAFF]"))
+            return ("/login/admin_page.html");
+        else if(auth.getAuthorities().toString().equals("[ROLE_STUDENT]"))
+            return ("/login/admin_page.html");
+        else
+            return  ("/login/home.html");
+
     }
 
     // Login form

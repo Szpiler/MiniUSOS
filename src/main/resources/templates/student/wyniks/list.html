@@ -13,10 +13,7 @@
 <a href="/adder">Dodawanie przedmiotu | </a>
 <a href="/oceny">Oceny | </a>
 <a href="/login">Logowanie</a>
-<h1>Lista przedmiotów</h1>
-<form action="/adder">
-  <input type="submit" value="Dodaj przedmiot" />
-</form>
+<h1>Lista ocen</h1>
 
 <table class="table table-bordered table-striped" style="width: 60%">
   <tr>
@@ -28,8 +25,8 @@
   <tr th:each="wynik : ${wyniks}">
     <td th:text="${wynik.id}">BRAK</td>
     <td th:text="${wynik.ocena}">Jan</a></td>
-    <td th:text="${wynik.przedmiot_id}">Kowalski</td>
-    <td th:text="${wynik.student_id}">Kowalski</td>
+    <td th:text="${wynik.przedmioty_id}">Kowalski</td>
+    <td th:text="${wynik.studenci_id}">Kowalski</td>
   </tr>
 </table>
 </body>

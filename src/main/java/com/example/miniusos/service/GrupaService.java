@@ -16,16 +16,16 @@ public class GrupaService {
 
     public int getId(String mail) throws UsernameNotFoundException {
 
-        List<PracownikNaukowy> pracownicy = pracownikNaukowyRepository.findAll();
-        List<PracownikNaukowy> tempPracownicy = pracownikNaukowyRepository.findAll();
+//        List<PracownikNaukowy> pracownicy = pracownikNaukowyRepository.findAll();
+//        List<PracownikNaukowy> tempPracownicy = pracownikNaukowyRepository.findAll();
         int id=0;
-        for (PracownikNaukowy pracownik:tempPracownicy)
-        {
-            if (pracownik.getEmail().equals(mail) ) {
-                id = Math.toIntExact(pracownik.getId());
-                break;
-            }
-        }
+//        for (PracownikNaukowy pracownik:tempPracownicy)
+//        {
+//            if (pracownik.getEmail().equals(mail) ) {
+//                id = Math.toIntExact(pracownik.getId());
+//                break;
+//            }
+//        }
         //List<Przedmiot> przedmioty = przedmiotRepository.findByProawdzacy(pracownikNaukowyRepository.findByNazwisko(nazwisko).get());
         return id;
     }

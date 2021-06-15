@@ -16,6 +16,6 @@ public class PracownikNaukowyController {
     {
         model.addAttribute("science_workers", pracownikNaukowyRepository.findAll());
 
-        return "adder/add";
+        return "dziekanat/adder/add";
     }
 }

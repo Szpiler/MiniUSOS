@@ -38,6 +38,6 @@ public class PodgladWynikowController {
         }
         model.addAttribute("wyniks", ocenaRepository.getById(indeks));
         auth.getPrincipal();
-        return "wyniks/list";
+        return "student/wyniks/list";
     }
 }

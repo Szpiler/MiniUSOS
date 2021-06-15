@@ -16,6 +16,6 @@ public class PrzedmiotController {
     {
         model.addAttribute("przedmiots", przedmiotRepository.findAll());
 
-        return "przedmiots/list";
+        return "student/przedmiots/list";
     }
 }

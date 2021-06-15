@@ -16,6 +16,6 @@ public class OcenaController {
     {
         model.addAttribute("oceny", ocenaRepository.findAll());
 
-        return "oceny/list";
+        return "naukowy/oceny/list";
     }
 }

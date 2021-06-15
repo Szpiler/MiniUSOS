@@ -35,7 +35,7 @@ public class PrzedmiotController {
 
         String role = auth.getAuthorities().toString();
         if(auth.getAuthorities().toString().equals("[ROLE_STAFF]") || auth.getAuthorities().toString().equals("[ROLE_ADMIN]"))
-            return ("przedmiots/przedmioty_wykladowcy.html");
+            return ("naukowy/przedmiots/przedmioty_wykladowcy.html");
         else
         return "authorize/error";
     }

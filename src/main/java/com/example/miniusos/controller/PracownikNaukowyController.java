@@ -31,7 +31,7 @@ public class PracownikNaukowyController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String role = auth.getAuthorities().toString();
         if(auth.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
-            return "add/add";
+            return "dziekanat/add/add";
         }
         else
             return "authorize/error";

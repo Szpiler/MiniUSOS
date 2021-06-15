@@ -22,8 +22,6 @@
         <th>Nazwisko</th>
         <th>Numer telefonu</th>
         <th>Email</th>
-        <th>Login</th>
-        <th>Hasło</th>
     </tr>
     <tr th:each="student : ${students}">
         <td th:text="${student.id}">BRAK</td>
@@ -31,8 +29,6 @@
         <td th:text="${student.nazwisko}">Kowalski</td>
         <td th:int="${student.numer_telefonu}">999 999 999</td>
         <td th:text="${student.email}">xd@xd.com</td>
-        <td th:text="${student.login}">fajny_login</td>
-        <td th:text="${student.haslo}">fajne_hasło</td>
     </tr>
 </table>
 </body>
